@@ -45,7 +45,7 @@ determined according to one of the supported methods.
 
 The corrected estimator is used if `corrected` is true.
 """
-struct WassersteinShrinkage
+struct WassersteinShrinkage <:CovarianceEstimator
     eps::Float64 
 end
 
