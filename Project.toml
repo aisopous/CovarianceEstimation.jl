@@ -1,7 +1,7 @@
 name = "CovarianceEstimation"
 uuid = "587fd27a-f159-11e8-2dae-1979310e6154"
 authors = ["Mateusz Baran <mateuszbaran89@gmail.com>", "Thibaut Lienart"]
-version = "0.2.5"
+version = "0.2.6"
 
 [deps]
 Intervals = "d8418881-c3e1-53bb-8760-2df7ec849ed5"
