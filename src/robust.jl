@@ -68,7 +68,7 @@ Compute the shrinkage estimator where the target is a `DiagonalUnitVariance`.
 """
 function wasserstein_pm(X, ϵ)
     C = Symmetric(cov(X))
-    λ, v = eigen(C
+    λ, v = eigen(C)
     m = length(λ)
     λ = max.(1e-10, λ)
     eq = GammaEqn(ϵ, λ)
