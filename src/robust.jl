@@ -29,17 +29,10 @@ function (eq::GammaEqn)(expr, γ)
     expr[1] = (ϵ^2 .- 0.5*sum(λ)) .* z - m + 0.5 * sum(sqrt.(z.^2 .* λ.^2 .+ 4 .* λ .* z))
 end
 
-# Computes the Wasserstein-DR precision matrix of X wrt the Stein loss logdet(C*P) - <C*P> - p
 """
-    LinearShrinkage(target, shrinkage; corrected=false)
+    WassersteinShrinkage(target, eps)
 
-Linear shrinkage estimator described by equation
-``(1 - \\lambda) S + \\lambda F`` where ``S`` is standard covariance matrix,
-``F`` is shrinkage target described by argument `target` and ``\\lambda`` is a
-shrinkage parameter, either given explicitly in `shrinkage` or automatically
-determined according to one of the supported methods.
-
-The corrected estimator is used if `corrected` is true.
+Computes the Wasserstein-DR precision matrix of X wrt the Stein loss logdet(C*P) - <C*P> - p with the radius eps.
 """
 struct WassersteinShrinkage <:CovarianceEstimator
     eps::Float64 
