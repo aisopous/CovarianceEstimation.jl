@@ -4,13 +4,9 @@ using Intervals
 
 
 """
-    DiagonalUnitVariance
+    GammaEqn
 
-Target for linear shrinkage: unit matrix.
-A subtype of `LinearShrinkageTarget` where
-
-* ``F_{ij}=1`` if ``i=j`` and
-* ``F_{ij}=0`` otherwise
+Save data for solving for gamma
 """
 struct GammaEqn{T}
     ϵ::T 
