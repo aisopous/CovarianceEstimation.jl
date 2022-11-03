@@ -14,7 +14,7 @@ export CovarianceEstimator, SimpleCovariance,
     CommonCovariance, PerfectPositiveCorrelation, ConstantCorrelation,
     # Eigendecomposition-based methods
     AnalyticalNonlinearShrinkage,
-    WassersteinShrinkage
+    WassersteinShrinkage,
     AnalyticalNonlinearShrinkage,
     # Biweight midcovariance
     BiweightMidcovariance
