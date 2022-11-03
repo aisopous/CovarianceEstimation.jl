@@ -26,7 +26,6 @@
         @test sqrt(GammaEqn(0.01, λ)([0.], [1e20])/1e20) ≈ 0.01
         n = length(λ)
         @test GammaEqn(1., λ, n)([0.], [0]) == -n
-        @test GammaEqn(1., λ, n)([0.], [0]) == -n
         @test all(inv.(prec.(estimators, [X])) .== estimates)
     end
 end

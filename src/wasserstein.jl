@@ -41,6 +41,10 @@ end
 
 function cov(sre::WassersteinShrinkage, X::AbstractMatrix{<:Real};
              dims::Int=1, mean=nothing)
+    dims ∈ (1, 2) || throw(ArgumentError("Argument dims can only be 1 or 2 (given: $dims)"))
+
+    X = dims == 2 ? transpose(X) : X
+
     inv_cov = prec(sre, X)
     return inv(inv_cov)
 end
@@ -69,10 +73,9 @@ function wasserstein_pm(X, ϵ)
     # x = γ .* (1 .- 2. ./ (1 .+ sqrt.(1 .+ 4 ./ u)))
     x = γ.*(1 .- 0.5 *(sqrt.(max.(0., u.^2 .+ 4*u)) .- u)) 
     for i = 1:length(λ)
-        # NOTE: Numerically stable alternative for large values
+        # NOTE: Numerically stabler correction for large values
         if λ[i]*γ > 1e8
             x[i] = γ .* (1 .- 2. ./ (1 .+ sqrt.(1 .+ 4 ./ λ[i]*γ)))
-            # x[i] = γ*(1 - 0.5 *(sqrt((γ*λ[i])^2 + 4*λ[i]*γ)) - λ[i]*γ) 
         end
     end
     est = v*diagm(x)*v'
