@@ -53,4 +53,4 @@ end
 
 include("test_linearshrinkage.jl")
 include("test_nonlinearshrinkage.jl")
-include("robust.jl")
+include("test_robust.jl")

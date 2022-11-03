@@ -1,4 +1,4 @@
-@testset "Wshrink: Basic properties" begin
+@testset "Wshrink: Basic properties          " begin
 
     GammaEqn = CovarianceEstimation.GammaEqn
 
